@@ -1,0 +1,26 @@
+<!--HTML file-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script>
+            //define a worker
+            const worker = new Worker("worker.js");
+
+            worker.addEventListener("message", function(e) {
+                console.log("Worker said: ", e.data);
+            }, false);
+
+            function echoTest() {
+                const echoElement = document.getElementById("echo");
+                // Send data to our worker.
+                worker.postMessage(echoElement.value);
+            }
+        </script>
+        <title>Web worker JS</title>
+    </head>
+    <body>
+        <label for="echo">Echo</label>
+        <input type="text" name="echo" id="echo" />
+        <button onclick="echoTest()">Echo test</button>
+    </body>
+</html>
