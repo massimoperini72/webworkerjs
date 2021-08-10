@@ -18,16 +18,19 @@
                 worker.postMessage(echoElement.value);
             }
         </script>
+        <link rel="stylesheet" href="style.css" />
         <title>Web worker JS</title>
     </head>
     <body>
-        <p>
-            <label for="echo">Echo</label>
-            <input type="text" name="echo" id="echo" />
-            <button onclick="echoTest()">Echo test</button>
-        </p>
-        <p>
-            <span id="received"></span>
-        </p>
+        <div class="app">
+            <p>
+                <label for="echo">Echo</label>
+                <input type="text" name="echo" id="echo" />
+                <button onclick="echoTest()">Echo test</button>
+            </p>
+            <p>
+                <span id="received"></span>
+            </p>
+        </div>
     </body>
 </html>
