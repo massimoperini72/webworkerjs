@@ -6,9 +6,11 @@
             //define a worker
             const worker = new Worker("worker.js");
 
-            worker.addEventListener("message", function(e) {
+            worker.addEventListener("message", (e) => {
+                const received = document.getElementById("received");
+                received.innerHTML = e.data;
                 console.log("Worker said: ", e.data);
-            }, false);
+            });
 
             function echoTest() {
                 const echoElement = document.getElementById("echo");
@@ -19,8 +21,13 @@
         <title>Web worker JS</title>
     </head>
     <body>
-        <label for="echo">Echo</label>
-        <input type="text" name="echo" id="echo" />
-        <button onclick="echoTest()">Echo test</button>
+        <p>
+            <label for="echo">Echo</label>
+            <input type="text" name="echo" id="echo" />
+            <button onclick="echoTest()">Echo test</button>
+        </p>
+        <p>
+            <span id="received"></span>
+        </p>
     </body>
 </html>
